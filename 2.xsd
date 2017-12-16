@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="rss" type="rssType" />
+  <xsd:complexType name="rssType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="channelType" />
+    </xsd:sequence>
+    <xsd:attribute name="version" type="xsd:decimal" />
+  </xsd:complexType>
+  <xsd:complexType name="channelType">
+    <xsd:sequence>
+      <xsd:element name="title" type="xsd:string" />
+      <xsd:element name="description" type="xsd:string" />
+      <xsd:element name="link" type="xsd:string" />
+      <xsd:element name="ttl" type="xsd:int" />
+      <xsd:element name="language" type="xsd:string" />
+      <xsd:element name="generator" type="xsd:string" />
+      <xsd:element name="copyright" type="xsd:string" />
+      <xsd:element name="lastBuildDate" type="xsd:dateTime" />
+      <xsd:element name="image" type="imageType" />
+      <xsd:element maxOccurs="unbounded" name="item" type="itemType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="itemType">
+    <xsd:sequence>
+      <xsd:element name="title" type="xsd:string" />
+      <xsd:element name="description" type="xsd:string" />
+      <xsd:element name="link" type="xsd:string" />
+      <xsd:element name="pubDate" type="xsd:string" />
+      <xsd:element name="guid" type="guidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="guidType">
+    <xsd:attribute name="isPermaLink" type="xsd:boolean" />
+  </xsd:complexType>
+  <xsd:complexType name="imageType">
+    <xsd:sequence>
+      <xsd:element name="url" type="xsd:string" />
+      <xsd:element name="title" type="xsd:string" />
+      <xsd:element name="link" type="xsd:string" />
+      <xsd:element name="width" type="xsd:int" />
+      <xsd:element name="height" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
